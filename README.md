@@ -1,5 +1,5 @@
 
-# Introduction to Bayesian Data Analysis (Summer 23)
+# Introduction to Bayesian Data Analysis (Summer 24)
 
 ## **Welcome!**
 
