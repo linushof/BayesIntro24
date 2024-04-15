@@ -1,10 +1,10 @@
 
-# Introduction to Bayesian Data Analysis
+# Introduction to Bayesian Data Analysis (Summer 23)
 
 ## **Welcome!**
 
 This is the accompanying GitHub repository for the course “Introduction
-to Bayesian Data Analysis” (Summer 24) at the TUM School of Management.
+to Bayesian Data Analysis” at the TUM School of Management.
 
 ## Schedule
 
