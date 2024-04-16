@@ -8,11 +8,11 @@ to Bayesian Data Analysis” at the TUM School of Management.
 
 ## Schedule
 
-<table style="width:89%;">
+<table style="width:99%;">
 <colgroup>
-<col style="width: 19%" />
-<col style="width: 50%" />
-<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 23%" />
+<col style="width: 66%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -23,7 +23,8 @@ to Bayesian Data Analysis” at the TUM School of Management.
 <tr class="even">
 <td>17 April</td>
 <td>Intro</td>
-<td></td>
+<td><a
+href="https://www.moodle.tum.de/pluginfile.php/5106042/mod_resource/content/1/session_1_intro.pdf">Slides</a></td>
 </tr>
 <tr class="odd">
 <td>24 April</td>
