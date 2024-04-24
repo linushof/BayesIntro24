@@ -10,9 +10,9 @@ to Bayesian Data Analysis” at the TUM School of Management.
 
 <table style="width:99%;">
 <colgroup>
-<col style="width: 9%" />
-<col style="width: 23%" />
-<col style="width: 66%" />
+<col style="width: 7%" />
+<col style="width: 21%" />
+<col style="width: 69%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -29,7 +29,8 @@ href="https://www.moodle.tum.de/pluginfile.php/5106042/mod_resource/content/1/se
 <tr class="odd">
 <td>24 April</td>
 <td>Getting started: <code>R</code></td>
-<td></td>
+<td><a
+href="https://www.moodle.tum.de/pluginfile.php/5123485/mod_resource/content/1/session_2_getting_started_R.pdf">Slides</a></td>
 </tr>
 <tr class="even">
 <td>01 May</td>
