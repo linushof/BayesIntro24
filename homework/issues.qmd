@@ -14,7 +14,7 @@ library(tidyr)
 
 ```{r}
 x <- rnorm(1000, 100, 20)
-y <- rnorm(1000, 100, 10)
+y <- rnorm(1000, 90, 20)
 dat <- data.frame(x, y)
 ```
 
