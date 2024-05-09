@@ -1,5 +1,9 @@
 ---
 title: "Homework Session 3: Solving issues"
+author:
+  - name: Meho Porobic
+    email: mporobic10@gmail.com
+date: last-modified
 format: gfm
 ---
 
