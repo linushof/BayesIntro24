@@ -18,7 +18,8 @@ dat <- data.frame(x, y)
 ```
 
 ```{r}
-dat
+head(dat, 10) %>%
+  kable(digits = 2)
 ```
 
 ```{r}
@@ -33,5 +34,6 @@ dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)),
 ```
 
 ```{r}
-dat_long
+head(dat_long, 10) %>%
+  kable(digits = 2)
 ```
