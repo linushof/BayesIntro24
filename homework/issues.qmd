@@ -39,8 +39,15 @@ head(dat, 10) %>%
 #### Melt dat object into dat_long
 
 ```{r}
-dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)), 
-                       val = c(x, y))
+dat_long <- 
+  dat %>%
+    pivot_longer(
+      cols = c(x, y),
+      #lines below just to make it identical to previous dat_long
+      cols_vary = "slowest", 
+      names_to = "group",
+      values_to = "val"
+      )
 ```
 
 #### Quick view of the first ten rows in table form of dat_long
@@ -53,7 +60,7 @@ head(dat_long, 10) %>%
 #### Plotting histogram that groups by color
 
 Without na.rm it returns warning that 4 observations are omitted; it is not due to y or x limits, and I didn't find the NAs with dat_long\[is.na(dat_long\[,1\])\] or dat_long\[is.na(dat_long\[,2\])\] or manually.\
-Googled it; could be that some values get squished, but I am not using jiggle or dodge here, so I dont know. I just added line to drop NAs
+Googled it; could be that some values get squished, but I am not using jiggle or dodge here, so I dont know. I just added a line to drop NAs
 
 ```{r}
 dat_long %>%
@@ -67,7 +74,8 @@ dat_long %>%
     binwidth = 2,
     na.rm = TRUE #above paragraph refers to this line
     ) +
-  scale_fill_manual(values=c("#69b3a2", "#404080")) + # i used professors colors
+  scale_fill_manual(values=c("#69b3a2", "#404080")) +
+  # usually would use ggthemes to set for colorblind, here used professors colors
   xlim(0, 200) +
   ylim(0, 50) +
   labs(
