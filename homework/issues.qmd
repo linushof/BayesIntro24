@@ -27,14 +27,32 @@ head(dat, 10) %>%
 ```
 
 ```{r}
-ggplot(dat) +
-  geom_histogram(aes(x = x), fill = "red") + 
-  geom_histogram(aes(x = y), fill = "green")
+dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)), 
+                       val = c(x, y))
 ```
 
 ```{r}
-dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)), 
-                       val = c(x, y))
+dat_long %>%
+  ggplot(
+    aes(x = val, fill = group)
+    ) +
+  geom_histogram(
+    position = "identity",
+    alpha = .5,
+    bins = 30,
+    binwidth = 2,
+    na.rm = TRUE
+    ) +
+  scale_fill_manual(values=c("#69b3a2", "#404080")) +
+  xlim(0, 200) +
+  ylim(0, 50) +
+  labs(
+    title = "Better Plot",
+    fill = "Groups",
+    x = "Values",
+    y = "Counts"
+    )
+
 ```
 
 ```{r}
