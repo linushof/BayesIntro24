@@ -13,6 +13,7 @@ library(tidyr)
 ```
 
 ```{r}
+set.seed(14)
 x <- rnorm(1000, 100, 20)
 y <- rnorm(1000, 90, 20)
 dat <- data.frame(x, y)
