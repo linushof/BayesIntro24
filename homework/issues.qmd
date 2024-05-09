@@ -32,6 +32,11 @@ dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)),
 ```
 
 ```{r}
+head(dat_long, 10) %>%
+  kable(digits = 2)
+```
+
+```{r}
 dat_long %>%
   ggplot(
     aes(x = val, fill = group)
@@ -52,10 +57,24 @@ dat_long %>%
     x = "Values",
     y = "Counts"
     )
-
 ```
 
 ```{r}
-head(dat_long, 10) %>%
-  kable(digits = 2)
+dat$diff <- dat$x - dat$y
+
+dat %>%
+  ggplot(aes(x = diff)) +
+  geom_histogram(
+    fill = "#69b3a2",
+    bins = 30,
+    binwidth = 2,
+    na.rm = TRUE
+    ) +
+  xlim(-100,100) +
+  ylim(0, 50) +
+  labs(
+    title = "Difference Plot",
+    x = "Differences",
+    y = "Counts"
+    )
 ```
