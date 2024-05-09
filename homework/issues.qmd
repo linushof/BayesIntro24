@@ -9,10 +9,16 @@ format: gfm
 
 Make one or more pull request to <https://github.com/linushof/BayesIntro24> solving the specified [issues](https://github.com/linushof/BayesIntro24/issues).
 
+# Issues exercise:
+
+#### Load libraries
+
 ```{r}
 #load packages
 library(tidyverse)
 ```
+
+#### Set seeds and create the first dataframe
 
 ```{r}
 set.seed(14)
@@ -21,20 +27,33 @@ y <- rnorm(1000, 90, 20)
 dat <- data.frame(x, y)
 ```
 
+#### Quick view of the first ten rows in table form of dat
+
+I found flextable package to be better
+
 ```{r}
 head(dat, 10) %>%
   kable(digits = 2)
 ```
+
+#### Melt dat object into dat_long
 
 ```{r}
 dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)), 
                        val = c(x, y))
 ```
 
+#### Quick view of the first ten rows in table form of dat_long
+
 ```{r}
 head(dat_long, 10) %>%
   kable(digits = 2)
 ```
+
+#### Plotting histogram that groups by color
+
+Without na.rm it returns warning that 4 observations are omitted; it is not due to y or x limits, and I didn't find the NAs with dat_long\[is.na(dat_long\[,1\])\] or dat_long\[is.na(dat_long\[,2\])\] or manually.\
+Googled it; could be that some values get squished, but I am not using jiggle or dodge here, so I dont know. I just added line to drop NAs
 
 ```{r}
 dat_long %>%
@@ -46,9 +65,9 @@ dat_long %>%
     alpha = .5,
     bins = 30,
     binwidth = 2,
-    na.rm = TRUE
+    na.rm = TRUE #above paragraph refers to this line
     ) +
-  scale_fill_manual(values=c("#69b3a2", "#404080")) +
+  scale_fill_manual(values=c("#69b3a2", "#404080")) + # i used professors colors
   xlim(0, 200) +
   ylim(0, 50) +
   labs(
@@ -58,6 +77,8 @@ dat_long %>%
     y = "Counts"
     )
 ```
+
+#### Difference plot
 
 ```{r}
 dat$diff <- dat$x - dat$y
