@@ -19,7 +19,7 @@ dat <- data.frame(x, y)
 ```
 
 ```{r}
-dat
+kable(head(round(dat, digits = 2), n=10))
 ```
 
 ```{r}
