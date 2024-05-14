@@ -8,9 +8,7 @@ Make one or more pull request to <https://github.com/linushof/BayesIntro24> solv
 
 ```{r}
 #load packages
-library(knitr)
-library(ggplot2)
-library(tidyr)
+library(knitr, ggplot2, tidyr)
 ```
 
 ```{r}
