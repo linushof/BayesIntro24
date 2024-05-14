@@ -5,14 +5,17 @@ format: gfm
 
 Make one or more pull request to <https://github.com/linushof/BayesIntro24> solving the specified [issues](https://github.com/linushof/BayesIntro24/issues).
 
+
 ```{r}
 #load packages
+suppressWarnings(library(tidyr))
 library(knitr)
 library(ggplot2)
 library(tidyr)
 ```
 
 ```{r}
+set.seed(25)
 x <- rnorm(1000, 100, 20)
 y <- rnorm(1000, 90, 20)
 dat <- data.frame(x, y)
