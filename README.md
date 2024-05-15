@@ -46,7 +46,8 @@ href="https://www.moodle.tum.de/pluginfile.php/5139306/mod_resource/content/1/se
 <tr class="even">
 <td>15/22 May</td>
 <td>Bayesian updating</td>
-<td></td>
+<td><a
+href="https://www.moodle.tum.de/pluginfile.php/5145788/mod_resource/content/1/session_4_bayesian_updating.pdf">Slides</a></td>
 </tr>
 <tr class="odd">
 <td>29 May</td>
