@@ -6,10 +6,11 @@
 
 sim_tosses <- function(n, p){
   
-  sample(c("L", "W"), size=n, replace=TRUE, prob=c(p, 1-p))
+  sample(c("L", "W"), size=n, replace=T, prob=c(p, 1-p))
   
 }
 
+sim_tosses(100, .5)
 
 # counting function
 
@@ -20,6 +21,18 @@ counter <- function(data, cp){
   L <- sum(data=="L")
   W <- sum(data=="W")
   ways <- sapply( cp , function(cp) (cp*sides)^L * ((1-cp)*sides)^W ) 
+  data.frame(cp, ways) 
+  
+}
+
+
+counter <- function(data, cp){ 
+  
+  sides <- length(cp)-1
+  
+  L <- sum(data=="L")
+  W <- sum(data=="W")
+  ways <- (cp*sides)^L * ((1-cp)*sides)^W 
   data.frame(cp, ways) 
   
 }
