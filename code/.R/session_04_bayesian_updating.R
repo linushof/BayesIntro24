@@ -20,25 +20,13 @@ counter <- function(data, cp){
   
   L <- sum(data=="L")
   W <- sum(data=="W")
-  ways <- sapply( cp , function(cp) (cp*sides)^L * ((1-cp)*sides)^W ) 
-  data.frame(cp, ways) 
-  
-}
-
-
-counter <- function(data, cp){ 
-  
-  sides <- length(cp)-1
-  
-  L <- sum(data=="L")
-  W <- sum(data=="W")
   ways <- (cp*sides)^L * ((1-cp)*sides)^W 
   data.frame(cp, ways) 
   
 }
 
 counter(c("L", "W", "L"), cp=seq(0,1,.25)) # reproduces example from slides
-counter(sim_tosses(10, .1), cp=seq(0,1,.1)) 
+counter(sim_tosses(10, .5), cp=seq(0,1,.1)) 
 
 
 
@@ -47,7 +35,7 @@ counter(sim_tosses(10, .1), cp=seq(0,1,.1))
 old_data <- c("L", "W", "L")
 old_ways <- counter(old_data, cp=seq(0,1,.25))
 
-new_data <- "W"
+new_data <- sim_tosses(10, .5)
 new_ways <- counter(new_data, cp=seq(0,1,.25))
   
 data.frame(cp = old_ways$cp , 
