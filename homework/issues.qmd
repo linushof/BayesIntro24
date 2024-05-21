@@ -16,6 +16,7 @@ Make one or more pull request to <https://github.com/linushof/BayesIntro24> solv
 ```{r}
 #load packages
 library(tidyverse)
+library(knitr)
 ```
 
 #### Set seeds and create the first dataframe
