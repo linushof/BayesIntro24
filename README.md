@@ -8,11 +8,11 @@ to Bayesian Data Analysis” at the TUM School of Management.
 
 ## Schedule
 
-<table style="width:99%;">
+<table style="width:100%;">
 <colgroup>
-<col style="width: 7%" />
-<col style="width: 21%" />
-<col style="width: 70%" />
+<col style="width: 4%" />
+<col style="width: 12%" />
+<col style="width: 83%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -47,7 +47,10 @@ href="https://www.moodle.tum.de/pluginfile.php/5139306/mod_resource/content/1/se
 <td>15/22 May</td>
 <td>Bayesian updating</td>
 <td><a
-href="https://www.moodle.tum.de/pluginfile.php/5145788/mod_resource/content/1/session_4_bayesian_updating.pdf">Slides</a></td>
+href="https://www.moodle.tum.de/pluginfile.php/5145788/mod_resource/content/1/session_4_bayesian_updating.pdf">Slides
+Part 1</a>, <a
+href="https://www.moodle.tum.de/pluginfile.php/5151368/mod_resource/content/1/session_5_bayesian_updating_II.pdf">Slides
+Part 2</a></td>
 </tr>
 <tr class="odd">
 <td>29 May</td>
