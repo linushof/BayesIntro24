@@ -1,49 +1,8 @@
-
-# Exercise 1 (Tossing & Counting) --------------------------------------------------------------
-
-
-# globe tossing function
-
 sim_tosses <- function(n, p){
   
   sample(c("L", "W"), size=n, replace=T, prob=c(p, 1-p))
   
 }
-
-sim_tosses(100, .5)
-
-# counting function
-
-counter <- function(data, cp){ 
-  
-  sides <- length(cp)-1
-  
-  L <- sum(data=="L")
-  W <- sum(data=="W")
-  ways <- (cp*sides)^L * ((1-cp)*sides)^W 
-  data.frame(cp, ways) 
-  
-}
-
-counter(c("L", "W", "L"), cp=seq(0,1,.25)) # reproduces example from slides
-counter(sim_tosses(10, .5), cp=seq(0,1,.1)) 
-
-
-
-# Exercise 2 (Prior knowledge) ---------------------------------------------------------
-
-old_data <- c("L", "W", "L")
-old_ways <- counter(old_data, cp=seq(0,1,.25))
-
-new_data <- sim_tosses(10, .5)
-new_ways <- counter(new_data, cp=seq(0,1,.25))
-  
-data.frame(cp = old_ways$cp , 
-           old = old_ways$ways , 
-           new = new_ways$ways , 
-           total = old_ways$ways * new_ways$ways
-           )
-
 
 # Exercise 3: Applying Bayes' rule --------------------------------------------------------------
 
@@ -83,9 +42,9 @@ estimation %>%
        y = "Probability", 
        color = "Probability Type",
        linetype = "Probability Type") #+ 
-  #dark_theme() +
-  #scale_y_continuous(breaks = seq(0, 1, .05)) +
-  #theme(panel.grid.major.y =  element_line(color = "white"))
+#dark_theme() +
+#scale_y_continuous(breaks = seq(0, 1, .05)) +
+#theme(panel.grid.major.y =  element_line(color = "white"))
 #ggsave("materials/plots/session_04_bayesian_updating.png", height = 5, width = 6)
 
 
@@ -123,9 +82,9 @@ plot <- results %>%
        y = "Probability", 
        color = "Probability Type",
        linetype = "Probability Type") #+ 
-  #dark_theme() 
-  #scale_y_continuous(breaks = seq(0, 1, .05)) +
-  #theme(panel.grid.major.y =  element_line(color = "white"))
+#dark_theme() 
+#scale_y_continuous(breaks = seq(0, 1, .05)) +
+#theme(panel.grid.major.y =  element_line(color = "white"))
 
 plot + geom_text(
   data    = label,
@@ -158,7 +117,7 @@ p <- estimation %>%
   theme_minimal() + 
   labs(x = "Candidates", 
        y = "Probability") #+
-  #dark_theme()
+#dark_theme()
 
 p
 #ggsave("materials/plots/session_04_posterior.png", height = 5, width = 6)
@@ -186,7 +145,7 @@ estimation %>%
   theme_minimal() + 
   labs(x = "Candidates", 
        y = "Probability") #+ 
-  #dark_theme()
+#dark_theme()
 #ggsave("materials/plots/session_04_pi50.png", height = 5, width = 6)
 
 
