@@ -11,10 +11,10 @@ sim_tosses <- function(n, p){
 compute_post <- function(data, candidates, n){
   
   L <- sum(data=="L") # data 
-  relative_ways <- dbinom(L, n, prob = candidates$cp) # aka the 'likelihood'
-  posterior <- relative_ways * candidates$prior # updating 
+  likelihood <- dbinom(L, n, prob = candidates$cp) # aka the 'likelihood'
+  posterior <- likelihood * candidates$prior # updating 
   posterior_norm <- posterior/sum(posterior) # standardization
-  data.frame(candidates, lh=round(relative_ways, 3), post=round(posterior_norm,3))
+  data.frame(candidates, lh=round(likelihood, 3), post=round(posterior_norm,3))
   
 }
 
@@ -29,7 +29,6 @@ data <- sim_tosses(n, p = .5)
 candidates <- tibble(cp = seq(0,1,.1) , prior = rep(1/length(cp), length(cp)))
 estimation <- compute_post(data, candidates, n)
 estimation
-
 
 # check results
 
@@ -66,10 +65,6 @@ for (i in seq_along(1:n)){
   
 }
 
-# check results 
-
-results
-
 # plot updating
 label <- tibble(n = 1:n,  data)
 plot <- results %>% 
@@ -97,7 +92,6 @@ plot + geom_text(
 #ggsave("materials/plots/session_04_bayesian_updating_stepwise.png", height = 7, width = 12)
 
 
-
 # Posterior ---------------------------------------------------------------
 
 # simulate and estimate new data
@@ -113,7 +107,7 @@ estimation <- compute_post(sim_tosses(n,p), candidates, n)
 # plot posterior 
 p <- estimation %>%
   ggplot(aes(x=cp, y = post)) + 
-  geom_line(linetype = "dashed", color = "#F8766D", size = 1) + 
+  geom_line(linetype = "dashed", color = "#F8766D", linewidth = 1) + 
   theme_minimal() + 
   labs(x = "Candidates", 
        y = "Probability") #+
@@ -169,7 +163,6 @@ estimation %>%
 
 
 # Highest density percentile intervals ------------------------------------
-
 
 # 50% 
 
