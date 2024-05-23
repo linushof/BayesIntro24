@@ -23,9 +23,15 @@ dat
 ```
 
 ```{r}
-ggplot(dat) +
-  geom_histogram(aes(x = x), fill = "red") + 
-  geom_histogram(aes(x = y), fill = "green")
+ggplot(dat_long) +
+  geom_histogram(aes(x = val, fill = group), 
+                 bins = 30, 
+                 alpha = 0.5, 
+                 position = "identity") +
+  labs(x = "Value",
+       y = "Frequency",
+       fill = " Variable",
+       title = "Histogram of x and y")
 ```
 
 ```{r}
