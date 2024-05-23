@@ -1,38 +1,110 @@
 ---
 title: "Homework Session 3: Solving issues"
+author:
+  - name: Meho Porobic
+    email: mporobic10@gmail.com
+date: last-modified
 format: gfm
 ---
 
 Make one or more pull request to <https://github.com/linushof/BayesIntro24> solving the specified [issues](https://github.com/linushof/BayesIntro24/issues).
 
-```{r}
-#load packages
-library(knitr)
-library(ggplot2)
-library(tidyr)
-```
+# Issues exercise:
+
+#### Load libraries
 
 ```{r}
+#load packages
+library(tidyverse)
+library(knitr)
+```
+
+#### Set seeds and create the first dataframe
+
+```{r}
+set.seed(14)
 x <- rnorm(1000, 100, 20)
 y <- rnorm(1000, 90, 20)
 dat <- data.frame(x, y)
 ```
 
-```{r}
-dat
-```
+#### Quick view of the first ten rows in table form of dat
+
+I found flextable package to be better
 
 ```{r}
-ggplot(dat) +
-  geom_histogram(aes(x = x), fill = "red") + 
-  geom_histogram(aes(x = y), fill = "green")
+head(dat, 10) %>%
+  kable(digits = 2)
 ```
 
-```{r}
-dat_long <- data.frame(group = c(rep("x", 1000), rep("y", 1000)), 
-                       val = c(x, y))
-```
+#### Melt dat object into dat_long
 
 ```{r}
-dat_long
+dat_long <- 
+  dat %>%
+    pivot_longer(
+      cols = c(x, y),
+      #lines below just to make it identical to previous dat_long
+      cols_vary = "slowest", 
+      names_to = "group",
+      values_to = "val"
+      )
+```
+
+#### Quick view of the first ten rows in table form of dat_long
+
+```{r}
+head(dat_long, 10) %>%
+  kable(digits = 2)
+```
+
+#### Plotting histogram that groups by color
+
+Without na.rm it returns warning that 4 observations are omitted; it is not due to y or x limits, and I didn't find the NAs with dat_long\[is.na(dat_long\[,1\])\] or dat_long\[is.na(dat_long\[,2\])\] or manually.\
+Googled it; could be that some values get squished, but I am not using jiggle or dodge here, so I dont know. I just added a line to drop NAs
+
+```{r}
+dat_long %>%
+  ggplot(
+    aes(x = val, fill = group)
+    ) +
+  geom_histogram(
+    position = "identity",
+    alpha = .5,
+    bins = 30,
+    binwidth = 2,
+    na.rm = TRUE #above paragraph refers to this line
+    ) +
+  scale_fill_manual(values=c("#69b3a2", "#404080")) +
+  # usually would use ggthemes to set for colorblind, here used professors colors
+  xlim(0, 200) +
+  ylim(0, 50) +
+  labs(
+    title = "Better Plot",
+    fill = "Groups",
+    x = "Values",
+    y = "Counts"
+    )
+```
+
+#### Difference plot
+
+```{r}
+dat$diff <- dat$x - dat$y
+
+dat %>%
+  ggplot(aes(x = diff)) +
+  geom_histogram(
+    fill = "#69b3a2",
+    bins = 30,
+    binwidth = 2,
+    na.rm = TRUE
+    ) +
+  xlim(-100,100) +
+  ylim(0, 50) +
+  labs(
+    title = "Difference Plot",
+    x = "Differences",
+    y = "Counts"
+    )
 ```
