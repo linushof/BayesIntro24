@@ -55,7 +55,8 @@ Part 2</a></td>
 <tr class="odd">
 <td>29 May</td>
 <td>Bayesian data analysis workflow</td>
-<td></td>
+<td><a
+href="https://www.moodle.tum.de/pluginfile.php/5157657/mod_resource/content/1/session_6_bayesian_workflow.pdf">Slides</a></td>
 </tr>
 <tr class="even">
 <td>05/12 June</td>
