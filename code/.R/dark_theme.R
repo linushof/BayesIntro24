@@ -1,6 +1,6 @@
 library(tidyverse)
 
-dark_theme <- function(base_size = 20, base_family = "mono") {
+dark_theme <- function(base_size = 20) {
   theme_void() +
     theme(
       panel.background = element_rect(fill = "black", color = NA),

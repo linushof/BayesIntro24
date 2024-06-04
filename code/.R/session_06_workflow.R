@@ -39,7 +39,7 @@ ggplot(NORM, aes(x = range, y = d)) +
 # beta
 
 range <- seq(0, 1, length.out = 100)
-d <- dbeta(range, shape1 = 2, shape2 = 2)
+d <- dbeta(range, shape1 = 2, shape2 = 50)
 BETA <- data.frame(range, d)
 
 ggplot(BETA, aes(x = range, y = d)) +
@@ -98,8 +98,8 @@ summary <- data.frame(theta, d)
 ggplot(summary, aes(x = theta, y = d)) +
   geom_line(size = 1, linetype = "dashed", color = "#ff02ff" ) +
   labs(x = expression(theta), 
-       y = "Density") +
-  dark_theme()
+       y = "Density") # +
+  #dark_theme()
 ggsave("materials/plots/session_06_prior1.png", height = 5, width = 6)
 
 # sample from prior
@@ -111,14 +111,18 @@ ggplot(summary) +
   geom_line(size = 1, linetype = "dashed",  color = "#ff02ff", aes(x = theta, y = d)) +
   geom_density(data = prior_smp, aes(x = smp), color = "green", size = 1) + 
   labs(x = expression(theta), 
-       y = "Density") +
-  dark_theme()
+       y = "Density") # +
+  #dark_theme()
 ggsave("materials/plots/session_06_prior2.png", height = 5, width = 6)
 
+
+
 preds <- data.frame(L =vector("numeric", nrow(prior_smp)))
+
 N <- 1e3
 
 set.seed(832)
+
 for (i in seq_along(prior_smp$smp)){ 
   
   preds[i, "L"] <- rbinom(n = 1, size = N, prob = prior_smp[i, "smp"])
@@ -130,8 +134,8 @@ preds %>% ggplot(aes(x=L)) +
                  alpha = .5, bins = 100) + 
   scale_x_continuous(limits = c(0,N), breaks = seq(0,N,100)) + 
   labs(x = "Number of Simulated L out of 1000",
-       y = "Frequency") + 
-  dark_theme()
+       y = "Frequency") # + 
+  #dark_theme()
 ggsave("materials/plots/session_06_prior3.png", height = 5, width = 6)
 
 
