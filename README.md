@@ -61,7 +61,9 @@ href="https://www.moodle.tum.de/pluginfile.php/5157657/mod_resource/content/1/se
 <tr class="even">
 <td>05/12 June</td>
 <td>Linear models</td>
-<td></td>
+<td><a
+href="https://www.moodle.tum.de/pluginfile.php/5162909/mod_resource/content/1/session_7_linear_models_1.pdf">Slides
+Part 1</a></td>
 </tr>
 <tr class="odd">
 <td>19 June</td>
