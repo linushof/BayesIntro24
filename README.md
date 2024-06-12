@@ -63,7 +63,9 @@ href="https://www.moodle.tum.de/pluginfile.php/5157657/mod_resource/content/1/se
 <td>Linear models</td>
 <td><a
 href="https://www.moodle.tum.de/pluginfile.php/5162909/mod_resource/content/1/session_7_linear_models_1.pdf">Slides
-Part 1</a></td>
+Part 1</a>, <a
+href="https://www.moodle.tum.de/pluginfile.php/5169484/mod_resource/content/1/session_8_linear_models_2.pdf">Slides
+Part 2</a></td>
 </tr>
 <tr class="odd">
 <td>19 June</td>
@@ -82,8 +84,8 @@ Part 1</a></td>
 </tr>
 <tr class="even">
 <td>17 July</td>
-<td>Outro</td>
-<td></td>
+<td>No class</td>
+<td>Outro is on 10 July</td>
 </tr>
 </tbody>
 </table>

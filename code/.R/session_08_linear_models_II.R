@@ -28,7 +28,8 @@ FGA <- round(rgamma(N_games, 20, 1),0)
 FTA <- round(rgamma(N_games, 5, 1),0)
 pts <- vector("numeric", length = N_games)
 
-set.seed(1471)
+set.seed(123145)
+#set.seed(1471)
 for (i in seq_along(1:N_games)) { 
   
   pts[i] <-  sim_pts(FGA[i], FTA[i], hFG, hFT)
