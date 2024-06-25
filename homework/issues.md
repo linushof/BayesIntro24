@@ -11,6 +11,21 @@ library(ggplot2)
 library(tidyr)
 ```
 
+
+``` r
+# For the Issue 7:
+# Load the pacman package for efficient package loading
+if (!require(pacman)) install.packages("pacman")
+pacman::p_load(knitr, ggplot2, tidyr)
+```
+
+``` r
+# For the Issue 8:
+# Set seed for reproducibility
+set.seed(123)
+```
+
+
 ``` r
 x <- rnorm(1000, 100, 20)
 y <- rnorm(1000, 100, 10)
