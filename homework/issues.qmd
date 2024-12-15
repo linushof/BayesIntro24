@@ -24,8 +24,8 @@ dat
 
 ```{r}
 ggplot(dat) +
-  geom_histogram(aes(x = x), fill = "red") + 
-  geom_histogram(aes(x = y), fill = "green")
+  geom_histogram(aes(x = x), color = "red", position = "identity") + 
+  geom_histogram(aes(x = y), color = "green", position = "identity")
 ```
 
 ```{r}
